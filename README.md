@@ -1,5 +1,5 @@
 # Dockerized Ruby on Rails
-This project was bootstrapped with [Ruby on Rails](https://rubyonrails.org/) and powered by [Docker](https://www.docker.com/) and Docker compose. It's a dockerized base project of RoR used to start easily new project quickly with this stack, made by Théo Dalleau [@Shirikumo](https://github.com/Shirikumo)
+This project was bootstrapped with [Ruby on Rails](https://rubyonrails.org/) and powered by [Docker](https://www.docker.com/) and Docker compose. It's a dockerized base project of RoR used to start easily new project quickly with this stack, made by Théo Dalleau [@Shirikumo](https://github.com/Shirikumo).
 
 # Installation
 
@@ -26,6 +26,10 @@ Stop and remove container with `docker-compose down`.
 Since the project is powered by docker compose, you'll run command into containers via `docker-compose exec/run <container name> command`.
 For more informations about containers you should take a look to `./docker-compose.yml`
 
+By default database credentials are :
+user : `postgres`
+password : `pass`
+
 ## Options
 You can add the following options after `docker-compose up` :
 
@@ -48,7 +52,7 @@ Migrate database `docker-compose run web rake db:migrate`
 
 Delete database `docker-compose run web rake db:drop`
 
-Restore database `cat <dump> | docker exec -i moodwork_db psql -U postgres -Fc moodwork_development`
+Restore database `cat <dump> | docker exec -i moodwork_db psql -U <database_user> -Fc <database_name>`
 
 ## Troubleshooting
 Since we use docker here, depending on your system the files may have docker as owner. In that case then when you'll want to modify them you'll may get an permission error. Run `sudo chown "$USER":"$USER" . -R` at the root of the project and will be good.
