@@ -11,6 +11,7 @@ This project was bootstrapped with [Ruby on Rails](https://rubyonrails.org/) and
 ```
 docker-compose pull
 docker-compose build
+docker-compose run --rm web bundle install
 docker-compose run --rm web rake db:create RAILS_ENV=development
 docker-compose down
 ```
