@@ -54,7 +54,7 @@ Migrate database `docker-compose run web rake db:migrate`
 
 Delete database `docker-compose run web rake db:drop`
 
-Restore database `cat <dump> | docker exec -i moodwork_db psql -U <database_user> -Fc <database_name>`
+Restore database `cat <dump> | docker exec -i db psql -U <database_user> -Fc <database_name>`
 
 ## Troubleshooting
 Since we use docker here, depending on your system the files may have docker as owner. In that case then when you'll want to modify them you'll may get an permission error. Run `sudo chown "$USER":"$USER" . -R` at the root of the project and will be good.
@@ -69,6 +69,6 @@ You should take a look at `./config/database.yml` to change database config.
 You should make several env files for each environment's credentials and globals.
 
 ## Version
-- Ruby (ruby 2.6.2) running on stretch
-- Rails 5.1.7, default port : 3000
+- Ruby (ruby 3.0.0) running on buster
+- Rails 6.1.3.1, default port : 3000
 - Postgres (11.2) Port : 5432
