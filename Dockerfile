@@ -1,20 +1,21 @@
-FROM ruby:2.6.2-stretch
+FROM ruby:3.0.0-buster
 
 RUN apt-get update -qq && \
-apt-get install -y build-essential nodejs postgresql-client
+apt-get install -y build-essential nodejs postgresql-client && \
+apt-get upgrade -y && \
+apt-get clean && \
+rm -rf /var/lib/apt/lists/* && \
+mkdir /app
 
-RUN mkdir /app
 WORKDIR /app
 
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
+COPY Gemfile Gemfile.lock /app/
 
 RUN gem install bundler && \
 bundle install
 
 COPY . /app
 
-COPY ./web_entry.sh /app/
 RUN chmod a+x /app/web_entry.sh
 
 ENTRYPOINT ["bundle", "exec"]
