@@ -54,7 +54,7 @@ Migrate database `docker-compose run web rake db:migrate`
 
 Delete database `docker-compose run web rake db:drop`
 
-Restore database `cat <dump> | docker exec -i moodwork_db psql -U <database_user> -Fc <database_name>`
+Restore database `cat <dump> | docker exec -i db psql -U <database_user> -Fc <database_name>`
 
 ## Troubleshooting
 Since we use docker here, depending on your system the files may have docker as owner. In that case then when you'll want to modify them you'll may get an permission error. Run `sudo chown "$USER":"$USER" . -R` at the root of the project and will be good.
