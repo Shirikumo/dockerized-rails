@@ -71,4 +71,4 @@ You should make several env files for each environment's credentials and globals
 ## Version
 - Ruby (ruby 3.0.0) running on buster
 - Rails 6.1.3.1, default port : 3000
-- Postgres (11.2) Port : 5432
+- Postgres (13.2) Port : 5432
